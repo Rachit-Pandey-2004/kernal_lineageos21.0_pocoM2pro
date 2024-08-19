@@ -1,0 +1,39 @@
+&firmware {
+	android {
+		vbmeta {
+			parts = "vbmeta,boot,system,vendor,dtbo,recovery";
+		};
+		fstab {
+			vendor {
+				fsmgr_flags = "wait,avb";
+			};
+		};
+	};
+};
+
+&reserved_memory {
+	ramoops_mem: ramoops@9d800000 {
+		compatible = "ramoops";
+		reg = <0x0 0x9d800000 0x0 0x00400000>;
+
+		record-size = <0x200000>;
+		pmsg-size = <0x200000>;
+		ecc-size = <16>;
+		max-reason = <4>;
+	};
+};
+
+&wdog {
+	qcom,bark-time = <15000>;
+};
+
+&pm6150_vadc {
+	smb1390_therm {
+		qcom,scale-fn-type = <15>;
+	};
+};
+
+&ufshc_mem {
+	spm-level = <3>;
+	rpm-level = <3>;
+};
