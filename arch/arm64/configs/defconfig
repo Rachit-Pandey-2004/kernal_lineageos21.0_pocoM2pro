@@ -1,3 +1,6 @@
+# KernelSU
+CONFIG_KSU=y
+#others-original
 CONFIG_SYSVIPC=y
 CONFIG_POSIX_MQUEUE=y
 CONFIG_AUDIT=y
